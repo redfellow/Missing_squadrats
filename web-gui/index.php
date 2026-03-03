@@ -39,6 +39,10 @@ width: 80%}
   <input type="text" id="SElon" name="SElon" value="26.2">
   SE lat
   <input type="text" id="SElat" name="SElat" value="59.8"><br>
+  Line color
+  <input type="color" id="squadratinhosColor" name="squadratinhosColor" value="#853A3A">
+  Line weight
+  <input type="number" id="squadratinhosLineWeight" name="squadratinhosLineWeight" min="1" max="5" value="5">
   <input type="checkbox" id="cookie" name="cookie" value="cookie">
   <label for="cookie"> Save map location into a cookie</label><br>
   <input type="submit" id="submitButton" value="Upload kml file" name="submit"><br>

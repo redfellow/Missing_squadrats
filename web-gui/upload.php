@@ -19,6 +19,8 @@ $NWlon = (float) $_POST['NWlon'] ?? 0;
 $NWlat = (float) $_POST['NWlat'] ?? 0;
 $SElon = (float) $_POST['SElon'] ?? 0;
 $SElat = (float) $_POST['SElat'] ?? 0;
+$squadratinhosLineWeight = (float) $_POST['squadratinhosLineWeight'] ?? 0;
+$squadratinhosColor = str_replace("#","",$_POST['squadratinhosColor']);
 $saveCookie = !empty($_POST['cookie']);
 $target_dir = "../../jobs/missing_squadrats/";
 $fileName = date('Y-m-d') . '-' . $userName;
@@ -71,6 +73,8 @@ $job = implode(',', [
   'nwlat' => $NWlat,
   'selon' => $SElon,
   'selat' => $SElat,
+  'squadratinhosLineWeight' => $squadratinhosLineWeight,
+  'squadratinhosColor' => $squadratinhosColor,
 ]);
 file_put_contents($target_dir . $fileName . '.csv', $job);
 ?>
