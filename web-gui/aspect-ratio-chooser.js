@@ -34,12 +34,23 @@
 		}
 	}
 
+	function getContainerWidth() {
+		mapEl.style.setProperty('width', '100%', 'important');
+		return mapEl.offsetWidth || 940;
+	}
+
 	function applyRatio(w, h) {
 		activeRatio = [w, h];
 		var rw = rotated ? h : w;
 		var rh = rotated ? w : h;
-		var width = mapEl.offsetWidth || 940;
+		var width = getContainerWidth();
 		var height = Math.round(width * rh / rw);
+		var maxHeight = Math.floor(window.innerHeight * 0.8);
+		if (height > maxHeight) {
+			height = maxHeight;
+			width = Math.round(height * rw / rh);
+			mapEl.style.setProperty('width', width + 'px', 'important');
+		}
 		setMapHeight(height);
 		var info = document.getElementById('ar-info');
 		if (info) {
@@ -91,8 +102,14 @@
 		}
 		setActive(match);
 		activeRatio = [sw, sh];
-		var width = mapEl.offsetWidth || 940;
+		var width = getContainerWidth();
 		var height = Math.round(width * ch / cw);
+		var maxHeight = Math.floor(window.innerHeight * 0.8);
+		if (height > maxHeight) {
+			height = maxHeight;
+			width = Math.round(height * cw / ch);
+			mapEl.style.setProperty('width', width + 'px', 'important');
+		}
 		setMapHeight(height);
 		var info = document.getElementById('ar-info');
 		if (info) {
@@ -106,6 +123,10 @@
 		document.getElementById(id).addEventListener('keydown', function(e) {
 			if (e.key === 'Enter') applyCustom();
 		});
+	});
+
+	window.addEventListener('resize', function() {
+		applyRatio(activeRatio[0], activeRatio[1]);
 	});
 
 	applyRatio(16, 9);

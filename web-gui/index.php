@@ -107,7 +107,7 @@ foreach ($shFiles as $file) {
 <IMG src="screenshot-enable.png">
 
 <p class="card-header card-header-devices">Tested devices:
-<ul class="card-body">
+<ul class="card-body card-body-devices">
   <li>Garmin Edge 530
   <li>Garmin Edge 820
   <li>Garmin Edge 840
@@ -118,7 +118,7 @@ foreach ($shFiles as $file) {
 </ul>
 
 <p class="card-header card-header-todo">ToDo:
-<ul class="card-body">
+<ul class="card-body card-body-todo">
   <li>Add optional grid for whole map area
   <li>User configurable tile line color and width
   <li>Add an option to make a map of squadrats (zoom level 14)
